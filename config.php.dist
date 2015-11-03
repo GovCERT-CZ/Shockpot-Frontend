@@ -1,0 +1,42 @@
+﻿<?php
+#Author: ikoniaris
+#Website: bruteforce.gr/kippo-graph
+#Modifications: standa4
+
+# DIR_ROOT: defines where your Shockpot-Frontend installation currently resides in.
+# Please don't change this unless there is a special reason to do so.
+define('DIR_ROOT', dirname(__FILE__));
+
+# Language selection for charts -- Default: en (English)
+# Change the two-letter lang.XX.php language code to your preferred choice.
+# Available options:
+#  en: English 
+require_once(DIR_ROOT . '/include/languages/lang.en.php');
+
+# PostgreSQL server configuration: you will have to change the following
+# four definitions from the default values to the correct ones,
+# according to your PostgreSQL server instance. When you installed Shockpot
+# and configured PostgreSQL logging, you should have created a new
+# PostgreSQL user just for this job, otherwise use postgres (not recommended!)
+define('DB_HOST', '127.0.0.1');
+define('DB_USER', 'user');
+define('DB_PASS', 'password');
+define('DB_NAME', 'db');
+define('DB_PORT', '5432');
+
+# Which geolocation method should be used -- Default: LOCAL (MaxMind)
+# Note: LOCAL (MaxMind) enables additional fields in various components.
+#  When using LOCAL you might want to periodically update (monthly) the
+#  shockpot-frontend/include/maxmind/GeoLite2-City.mmdb MaxMind database file
+#  with a new one from: http://dev.maxmind.com/geoip/geoip2/geolite2/
+# Available options:
+#  LOCAL: fastest, uses a local MaxMind GeoLite2 database
+#  GEOPLUGIN: uses the geoplugin.com web service (online)
+define('GEO_METHOD', 'LOCAL');
+
+# Check if logged IP addresses are coming from Tor using the Tor Bulk Exit List exporting tool.
+# The list of exit nodes is also saved locally, in case the online service goes down.
+# Note: this enables additional fields in various components.
+# Change NO to YES if you want to enable it.
+define('TOR_CHECK', 'NO');
+?>
